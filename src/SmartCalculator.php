@@ -7,8 +7,8 @@ class SmartCalculator extends BasicCalculator
     public function calculate(string $expression): int|string
     {
         $parts = preg_split('#([+\-*/])#', $expression, -1, PREG_SPLIT_DELIM_CAPTURE);
-        $number1 = (int)$parts[0];
-        $number2 = (int)$parts[2];
+        $number1 = (int) $parts[0];
+        $number2 = (int) $parts[2];
 
         if ($parts[1] === '+') {
             $result = $this->add($number1, $number2);

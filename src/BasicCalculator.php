@@ -22,7 +22,7 @@ class BasicCalculator
     public function divide($a, $b)
     {
         if ($b == 0) {
-            return "Infinity";
+            return 'Infinity';
         }
 
         return $a / $b;

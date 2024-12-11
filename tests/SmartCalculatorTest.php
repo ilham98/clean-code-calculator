@@ -2,8 +2,8 @@
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Uyab\Calculator\SmartCalculator;
 use PHPUnit\Framework\TestCase;
+use Uyab\Calculator\SmartCalculator;
 use Uyab\Calculator\Terbilang;
 
 #[CoversClass(SmartCalculator::class)]
@@ -11,9 +11,9 @@ use Uyab\Calculator\Terbilang;
 class SmartCalculatorTest extends TestCase
 {
     #[DataProvider('expressionProvider')]
-    public function testExpression($expression, $result): void
+    public function test_expression($expression, $result): void
     {
-        $calculator = new SmartCalculator();
+        $calculator = new SmartCalculator;
         $this->assertEquals($result, $calculator->calculate($expression));
     }
 
@@ -28,15 +28,15 @@ class SmartCalculatorTest extends TestCase
             ['2*3', 6],
             ['4 / 2', 2],
             ['4/2', 2],
-            ['4 / 0', "Infinity"],
-            ['4/0', "Infinity"],
+            ['4 / 0', 'Infinity'],
+            ['4/0', 'Infinity'],
         ];
     }
 
-    public function testCalculateAndDisplayAsTerbilang(): void
+    public function test_calculate_and_display_as_terbilang(): void
     {
-        $calculator = new SmartCalculator();
+        $calculator = new SmartCalculator;
         $result = $calculator->calculateAndDisplayAsTerbilang('1 + 1');
-        $this->assertEquals("dua", $result);
+        $this->assertEquals('dua', $result);
     }
 }
