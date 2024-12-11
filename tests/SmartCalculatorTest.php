@@ -4,8 +4,10 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Uyab\Calculator\SmartCalculator;
 use PHPUnit\Framework\TestCase;
+use Uyab\Calculator\Terbilang;
 
 #[CoversClass(SmartCalculator::class)]
+#[CoversClass(Terbilang::class)]
 class SmartCalculatorTest extends TestCase
 {
     #[DataProvider('expressionProvider')]
@@ -29,5 +31,12 @@ class SmartCalculatorTest extends TestCase
             ['4 / 0', "Infinity"],
             ['4/0', "Infinity"],
         ];
+    }
+
+    public function testCalculateAndDisplayAsTerbilang(): void
+    {
+        $calculator = new SmartCalculator();
+        $result = $calculator->calculateAndDisplayAsTerbilang('1 + 1');
+        $this->assertEquals("dua", $result);
     }
 }

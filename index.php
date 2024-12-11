@@ -2,10 +2,13 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Uyab\Calculator\BasicCalculator;
+use Uyab\Calculator\Terbilang;
+use Uyab\Calculator\SmartCalculator;
 
-$calculator = new BasicCalculator();
-echo $calculator->add(10, 2) . PHP_EOL;
+$terbilang = new Terbilang(-20);
+echo $terbilang->toString();
 
-$smartCalculator = new Uyab\Calculator\SmartCalculator();
-echo $smartCalculator->calculateAndDisplayAsTerbilang('333 * 222');
+$smartCalculator = new SmartCalculator();
+echo $smartCalculator->calculateAndDisplayAsTerbilang('1 + 1');
+
+

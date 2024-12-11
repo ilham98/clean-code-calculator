@@ -1,0 +1,3 @@
+sonar.projectKey=kalkulator-ihsan-ilham
+sonar.sources=app
+sonar.php.coverage.reportPaths=coverage.xml
