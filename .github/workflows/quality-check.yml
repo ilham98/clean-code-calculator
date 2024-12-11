@@ -34,18 +34,9 @@ jobs:
           git status
         working-directory: /var/www/html
 
-      - name: Setup Laravel
-        run: |
-          cp .env.example .env
-          git status
-          composer install --no-interaction --optimize-autoloader --quiet
-          php artisan key:gen
-          cp .env .env.testing
-        working-directory: /var/www/html
-
       - name: Run Quality Check
         run: |
-          composer qc
+          XDEBUG_MODE=coverage vendor/bin/phpunit --coverage --min=90 --coverage-clover coverage.xml
           cp sonar-project.properties.example sonar-project.properties
           sonar-scanner -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
         working-directory: /var/www/html
